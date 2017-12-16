@@ -1,0 +1,9 @@
+version: '3'
+
+services: 
+  product-service: 
+    build: ./user
+    volumes: 
+      - ./user:/usr/src/app
+    ports: 
+      - 5001:3000

@@ -1,0 +1,15 @@
+FROM node:9.3.0-onbuild
+
+RUN apt-get update
+RUN git clone https://github.com/akolliy1/UserManager.git
+RUN apt-get clean
+
+COPY . /package.json src/
+
+RUN cd src && npm install
+
+COPY ./src
+
+WORKDIR src/
+
+CMD ["npm", "start"]
